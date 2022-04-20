@@ -1,0 +1,50 @@
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <script src="https://unpkg.com/vue@next"></script>
+    <style>
+      div#app {
+        padding: 30px;
+        margin: 30px auto;
+        max-width: 600px;
+        border: 1px solid #ccc;
+        box-shadow: 3px 3px 3px #aaa;
+      }
+      span {
+        display: inline-block;
+        margin: 5px;
+        padding: 8px 15px;
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <span
+        v-for="(s, index) in words"
+        v-bind:style="{ backgroundColor: color }"
+        v-on:click="hove(index)"
+      >
+        {{ index }}-{{ s }}
+      </span>
+    </div>
+
+    <script type="text/javascript">
+      let app = {
+        data() {
+          return {
+            words: ['zero', 'one', 'two', 'three', 'four', 'five'],
+            colors: ['#ffa', '#bfb', '#bbf', '#fbb', '#ffe', '#eee'],
+            color: '#fff',
+          }
+        },
+        methods: {
+          hove(index) {
+            this.color = this.colors[index]
+          },
+        },
+      }
+      Vue.createApp(app).mount('#app')
+    </script>
+  </body>
+</html>
