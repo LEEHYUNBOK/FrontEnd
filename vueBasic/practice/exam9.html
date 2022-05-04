@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <script src="https://unpkg.com/vue@next"></script>
+    <style>
+      div#box {
+        margin: 20px auto;
+        padding: 20px;
+        width: 300px;
+        border: 1px solid gray;
+        box-shadow: 5px 5px 5px #aaa;
+      }
+      button {
+        padding: 0.5em 1em;
+        margin-right: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div id="box" v-bind:style="{ backgroundColor: color }">
+        <h1>buttons</h1>
+        <button type="button" v-on:click="show('#ffa')">yellow</button>
+        <button type="button" v-on:click="show('#bfb')">green</button>
+        <button type="button" v-on:click="show('#fbb')">red</button>
+      </div>
+    </div>
+    <script type="text/javascript">
+      let app = {
+        data() {
+          return {
+            color: '#ffa',
+          }
+        },
+        methods: {
+          show(t) {
+            this.color = t
+          },
+        },
+      }
+      Vue.createApp(app).mount('#app')
+    </script>
+  </body>
+</html>

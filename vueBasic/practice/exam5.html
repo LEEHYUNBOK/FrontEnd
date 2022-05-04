@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <script src="https://unpkg.com/vue@next"></script>
+    <style>
+      div#box {
+        margin: 20px auto;
+        padding: 20px;
+        width: 300px;
+        border: 1px solid gray;
+        box-shadow: 5px 5px 5px #aaa;
+      }
+      select {
+        padding: 5px;
+        font-size: 15pt;
+        width: 150px;
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div id="box">
+        <h1 v-bind:style="{ fontSize: size }">hello</h1>
+        <select v-model.number="size">
+          <option value="10">10</option>
+          <option value="20">20</option>
+          <option value="30">30</option>
+        </select>
+      </div>
+    </div>
+    <script type="text/javascript">
+      let app = {
+        data() {
+          return {
+            size: 10,
+          }
+        },
+      }
+      Vue.createApp(app).mount('#app')
+    </script>
+  </body>
+</html>

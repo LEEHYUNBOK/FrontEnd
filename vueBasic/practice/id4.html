@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <script src="https://unpkg.com/vue@next"></script>
+    <style>
+      div#app {
+        margin: 20px auto;
+        width: 300px;
+        border: 1px solid gray;
+        box-shadow: 5px 5px 5px #aaa;
+      }
+      div#t {
+        padding: 20px;
+      }
+      .male {
+        background-color: #bbf;
+      }
+      .female {
+        background-color: #fbb;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div
+        id="t"
+        v-bind:style="sex == '남자' ? 'background-color:#bbf' : sex == '여자' ? 'background-color: #fbb' : ''"
+      >
+        <label> <input type="radio" value="남자" v-model="sex" />남자 </label>
+        <label> <input type="radio" value="여자" v-model="sex" />여자 </label>
+        <h1>{{ sex }}</h1>
+      </div>
+    </div>
+    <script type="text/javascript">
+      let app = {
+        data() {
+          return {
+            sex: '',
+            color: '#fff',
+          }
+        },
+      }
+      Vue.createApp(app).mount('#app')
+    </script>
+  </body>
+</html>

@@ -1,0 +1,58 @@
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <script src="https://unpkg.com/vue@next"></script>
+    <style>
+      div#app {
+        padding: 30px;
+        margin: 30px auto;
+        max-width: 600px;
+        border: 1px solid #ccc;
+        box-shadow: 3px 3px 3px #aaa;
+      }
+      span {
+        display: inline-block;
+        margin: 5px 5px 5px 0px;
+        padding: 8px 15px;
+        border: 1px solid black;
+      }
+      input {
+        padding: 5px;
+        margin: 5px;
+      }
+      button {
+        padding: 0.3em 1em;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div>
+        <input type="text" v-model.number="word" />
+        <button type="button" v-on:click="add(word)">생성</button>
+      </div>
+      <span v-for="(s, index) in words"> {{ s }} </span>
+    </div>
+
+    <script type="text/javascript">
+      let app = {
+        data() {
+          return {
+            words: [],
+            word: 0,
+          }
+        },
+        methods: {
+          add(num) {
+            console.log(this.words)
+            this.words.splice(0)
+            console.log(this.words)
+            for (let i = 0; i < this.word; i++)
+              this.words.push(Math.floor(Math.random() * 10))
+          },
+        },
+      }
+      Vue.createApp(app).mount('#app')
+    </script>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <script src="https://unpkg.com/vue@next"></script>
+    <style>
+      body {
+        padding: 20px;
+      }
+      input {
+        padding: 5px;
+        margin: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <h1>입력</h1>
+      <input type="text" v-model="body" /> <br />
+      <hr />
+      {{ body.toUpperCase() }}
+    </div>
+    <script type="text/javascript">
+      let app = {
+        data() {
+          return {
+            body: '',
+          }
+        },
+      }
+      Vue.createApp(app).mount('#app')
+    </script>
+  </body>
+</html>

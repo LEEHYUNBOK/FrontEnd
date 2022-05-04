@@ -1,0 +1,48 @@
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <script src="https://unpkg.com/vue@next"></script>
+    <style>
+      div#app {
+        padding: 30px;
+        margin: 30px auto;
+        width: 400px;
+        border: 1px solid #ccc;
+        box-shadow: 3px 3px 3px #aaa;
+      }
+      table {
+        border-collapse: collapse;
+      }
+      td {
+        padding: 2px;
+        border: 1px solid black;
+      }
+      input[type='text'] {
+        padding: 4px;
+        margin: 20px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <input type="text" v-model="num" />
+      <table>
+        <tr v-for="r in size">
+          <td>{{ num }} x {{ r }} = {{ num*(r) }}</td>
+        </tr>
+      </table>
+    </div>
+
+    <script type="text/javascript">
+      let app = {
+        data() {
+          return {
+            size: 9,
+            num: 2,
+          }
+        },
+      }
+      Vue.createApp(app).mount('#app')
+    </script>
+  </body>
+</html>
