@@ -1,0 +1,54 @@
+<template>
+  <div id="app">
+    <select v-model="number">
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+    </select>
+    <table>
+      <tr v-for="r in size" v-bind:key="r">
+        <td>{{ number }} * {{ r }} = {{ number * r }}</td>
+      </tr>
+    </table>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'TestWorld1',
+  data() {
+    return {
+      size: 9,
+      number: 2,
+    }
+  },
+}
+</script>
+
+<style scoped>
+div#app {
+  padding: 30px;
+  margin: 30px auto;
+  width: 400px;
+  border: 1px solid #ccc;
+  box-shadow: 3px 3px 3px #aaa;
+}
+table {
+  border-collapse: collapse;
+}
+td {
+  width: 100px;
+  padding: 2px;
+  border: 1px solid #b4b0b0;
+}
+select {
+  width: 106px;
+  padding: 5px;
+  margin: 10px 0;
+}
+</style>
